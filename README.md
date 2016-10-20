@@ -4,6 +4,12 @@
 
 # Usage
 
+Add to haproxy config:
+```
+  log /sidecar/log local0
+```
+
+docker-compose.yml:
 ```yaml
 version: '2'
 services:
