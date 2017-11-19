@@ -20,3 +20,23 @@ services:
   syslog-sidecar:
     image: outstand/syslog-ng-stdout:latest
 ```
+
+```yaml
+version: '3.0'
+services:
+  haproxy:
+    image: haproxy:latest
+    volumes:
+      - syslog:/sidecar
+    depends_on:
+      - syslog-sidecar
+
+  syslog-sidecar:
+    image: outstand/syslog-ng-stdout:latest
+
+    volumes:
+      - syslog:/sidecar
+
+volumes:
+  syslog:
+```
